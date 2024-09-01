@@ -8,11 +8,30 @@ Este documento fornece informações sobre os endpoints da API para a aplicaçã
 
 ## Diagrama de Classes
 
-
+![Modelagem de Dados - TGID](https://github.com/user-attachments/assets/821c6b30-a65b-4ee6-a223-c99f058a0bd4)
 
 ## Utilização
 
-
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/guilherme-SN/teste-java-developer-tgid.git
+   ```
+2. Configure as variáveis de ambiente:
+   ```bash
+   # Para Linux/MacOS
+   export DB_NAME=nome_do_banco
+   export DB_USERNAME=usuario
+   export DB_PASSWORD=senha
+   
+   # Para Windows
+   set DB_NAME=nome_do_banco
+   set DB_USERNAME=usuario
+   set DB_PASSWORD=senha
+   ```
+3. Rode o projeto com o maven:
+   ```bash
+   mvn spring-boot:run
+   ```
 
 ## URL Base
 
@@ -30,7 +49,7 @@ Este documento fornece informações sobre os endpoints da API para a aplicaçã
     ```json
     {
         "type": "Tipo da taxa",
-        "percentual": <percentual da taxa>
+        "percentual": 0.05
     }
     ```
 
@@ -54,10 +73,10 @@ Este documento fornece informações sobre os endpoints da API para a aplicaçã
 
     ```json
     {
-        "cnpj": "XX.XXX.XXX/XXXX-XX",
+        "cnpj": "12.345.678/0000-00",
         "name": "Nome da empresa",
-        "balance": <saldo>,
-        "taxesId": [<ID das taxas>]
+        "balance": 100000.00,
+        "taxesId": [1, 2]
     }
     ```
 
@@ -81,9 +100,9 @@ Este documento fornece informações sobre os endpoints da API para a aplicaçã
 
     ```json
     {
-        "cpf": "XXX.XXX.XXX-XX",
+        "cpf": "123.456.789-00",
         "name": "Nome do cliente",
-        "companiesId": [<ID das empresas>]
+        "companiesId": [1, 2]
     }
     ```
 
@@ -107,8 +126,9 @@ Este documento fornece informações sobre os endpoints da API para a aplicaçã
 
     ```json
     {
-        "clientId": <ID do cliente>,
-        "companyId": <ID da empresa>,
-        "amount": <quantidade>
+        "clientId": 2,
+        "companyId": 3,
+        "type": "WITHDRAWAL",
+        "amount": 1000.00
     }
     ```
